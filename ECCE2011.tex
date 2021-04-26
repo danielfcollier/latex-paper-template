@@ -1,0 +1,297 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Paper for reviewers %
+%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[10pt, draftcls, onecolumn, peerreviewca]{IEEEtran}
+%\documentclass[10pt, onecolumn,conference]{IEEEtran}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{setspace}
+%\singlespacing
+%\onehalfspacing
+%\doublespacing
+%\setstretch{1.1}
+%%%%%%%%%%%%%%%%%%%%%%%
+% Final paper         %
+%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt, conference]{IEEEtran}
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\singlespacing
+
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{balance}
+
+\usepackage{multirow}
+
+% *** CITATION PACKAGES ***
+\usepackage{cite}
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  \usepackage[dvips]{graphicx}
+\fi
+
+
+% *** MATH PACKAGES ***
+\usepackage[cmex10]{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{units} 
+
+
+%\usepackage{algorithmic}
+
+
+% *** ALIGNMENT PACKAGES ***
+%\usepackage{array}
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+%\usepackage{eqparbox}
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+
+
+% *** FLOAT PACKAGES ***
+\usepackage{fixltx2e}
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley and Jeff Goldberg.
+% This package may be useful when used in conjunction with IEEEtran.cls'
+% captionsoff option. Some IEEE journals/societies require that submissions
+% have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.3.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% For subfigure.sty:
+% \let\MYorigsubfigure\subfigure
+% \renewcommand{\subfigure}[2][\relax]{\MYorigsubfigure[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat/subfig command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+\usepackage{url}
+\usepackage{color}
+
+% Symbols
+\usepackage{gensymb}
+\usepackage{epstopdf}
+\usepackage{multirow}
+
+% New commands
+\newcommand{\figref}[1]{Fig.~\ref{#1}}  % Cross-reference of figures
+\newcommand{\tabref}[1]{Table~\ref{#1}}  % Cross-reference of tables
+\newcommand{\secref}[1]{section~\ref{#1}}  % Cross-reference of equations
+\newcommand{\equref}[1]{(\ref{#1})}  % Cross-reference of equations
+\newcommand{\tabscale}{0.8333}
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+\title{ {{\Large{Semiconductor Conduction Losses Prediction Considering the Current Ripple in a Three-Phase Two-Level Voltage Source Converter Driven by Different PWM Strategies}}}}
+
+\author{\IEEEauthorblockN{Daniel~A.~F.~Collier and~Marcelo~L.~Heldwein} 
+\small Federal University of Santa Catarina (UFSC) ---  Electrical Engineering Department \\
+\small Power Electronics Institute (INEP), P.O. box: 5119 --- 88040-970 --- Florian\'opolis/SC, BRAZIL\\
+\small {e-mail: collier@inep.ufsc.br;  heldwein@inep.ufsc.br}}
+
+\maketitle
+ 
+\begin{abstract}
+The choice of topologies, modulation strategies and semiconductors is a process that requires appropriatte tools to design a converter and to evaluate the technology to be employed. Typically, simulations are used to increase the precision during the analysis process of power converters. Theoretical tools to analyze three-phase voltage source converters (VSC) are given in depth in the bibliography, but some analyzes are based on simplifications and better results can still be determined. Applications of the VSC other than for power factor correction (PFC), such as drives applications, active filters, wind energy conversion, among others, require better theoretical results since most of the simplications are considered for PFC operation. Thus, a detailed analysis of the operation conditions has to be considered, which includes displacement angles, resistive voltage drops in wires and current ripples. In this work a detailed analysis of the current ripples in the phase current and in the semiconductor is presented for different PWM strategies. The switch models are considered for the most typical modern implementations, i.e., IGBT/diode and SiC MOSFET. A detailed comparison of the results for different PWM strategies and operation conditions is presented in order to highlight the improved accuracy of the proposed analysis.
+\end{abstract}
+
+\begin{IEEEkeywords}
+ Power Factor Correction, PWM rectifiers, multi-state switching cells, high efficiency.
+\end{IEEEkeywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{{Conclusions}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{This works presented a methodology to improve the calculation of the current ripple rms value in the VSC with different PWM strategies. It has been shown that the semiconductor losses estimations  can also be improved considering simpler results in the analysis of the current ripple.  The final version of ths work will be enriched with further information. }
+
+
+% if have a single appendix:
+%\section*{\MakeUppercase{A\footnotesize{ppendix}} --- Minimum Inductance for a Given Attenuation}\label{sec:app_min_ind}
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+%\appendices
+%\section{Proof of the First Zonklar Equation}
+%Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+%\section{}
+%Appendix two text goes here.
+
+
+%\balance
+
+
+\bibliographystyle{IEEEtran} %Style of Bibliography: plain / apalike / amsalpha / alpha / unsrt / IEEEtran / ...
+
+\bibliography{References}
+
+
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Photo_Marcelo_Heldwein.eps}}]{Marcelo Lobo Heldwein}
+%\end{IEEEbiography}
+%
+%\begin{biographynophoto}{\underline{Laurinda ...}}
+%Here...
+%\end{biographynophoto}
+
+%\begin{biographynophoto}{\underline{Marcelo Lobo Heldwein}}  received the B.S. and M.S. degrees in electrical engineering from the Federal University of Santa Catarina, Florianopolis, Brazil, in 1997 and 1999, respectively, and his Ph.D. degree from the Swiss Federal Institute of Technology (ETH Zurich), Zurich, Switzerland, in 2007.
+%
+%He is currently working as a Postdoctoral Fellow at the Power Electronics Institute (INEP), Federal University of Santa Catarina (UFSC), Florian\'opolis, Brazil.
+%
+%From 1999 to 2001, he was a Research Assistant with the Power Electronics Institute, Federal University of Santa Catarina. From 2001 to 2003, he was an Electrical Design Engineer with Emerson Energy Systems, in S„o JosÈ dos Campos, Brazil and in Stockholm, Sweden.
+%
+%His research interests include power factor correction techniques, static power converters and electromagnetic compatibility.
+%
+%Mr. Heldwein is currently a member of the Brazilian Power Electronic Society (SOBRAEP) and of the IEEE.
+%
+%\end{biographynophoto}
+
+
+
+
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Photo_Johann_Kolar.eps}}]{Johann W. Kolar}
+%\end{IEEEbiography}
+
+% insert where needed to balance the two columns on the last page with biographies
+%\newpage
+
+% if you will not have a photo at all:
+%\begin{IEEEbiographynophoto}{Jane Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+\end{document}
+
+% Retificadores PFC multiniveis baseados em celula de comutaÁao de multiplos estados tem se mostrado uma alternativa potencial onde alto rendimento, alta potÍncia e elevada densidade de potÍncias„o desejados. O emprego de celulas de comutaÁao de multiplos estados permite uma Ûtima distribuiÁao de esforÁos de corrente, ao mesmo tempo em que a frequencia aparente gerada pelo conversor (que depende da frequencia de comutaÁao e do n;umero de cÈlulas de comutaÁao) È d
